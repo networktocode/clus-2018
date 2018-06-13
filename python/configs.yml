@@ -1,0 +1,5 @@
+---
+
+ip_addr: 10.0.0.0
+subnet_mask: 255.255.255.0
+description: "Best Interface Ever"
