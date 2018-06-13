@@ -1,3 +1,9 @@
 ---
 key: value
 
+hostname: bestRouterEver
+
+vlans:
+  - name: Vlan10
+    id: 10
+
