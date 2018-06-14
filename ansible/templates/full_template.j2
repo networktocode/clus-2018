@@ -1,0 +1,20 @@
+hostname {{ hostname }}
+
+{% for vlan in vlans %}
+vlan {{ vlan.id }}
+  name {{ vlan.name }}
+{% endfor %}
+
+{% for vrf in vrfs %}
+vrf definition {{ vrf.name }}
+  rd {{ vrf.rd }}
+{% endfor %}
+
+{% for iface in interfaces %}
+interface {{ iface.name }}
+  description {{ iface.description }}
+  {% if iface.vrf %}
+  vrf forwarding {{ vrf }}
+  {% endif -%}
+  ip address {{ iface.ip_addr }} {{ iface.subnet_mask }}
+{% endfor %}

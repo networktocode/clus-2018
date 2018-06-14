@@ -1,0 +1,18 @@
+---
+- name: "Render config from a template"
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars_files:
+    - "configs.yml"
+
+  tasks:
+    - name: Copy commit ref to file
+      template:
+        src: templates/configs.j2
+        dest: final.txt
+      register: config
+
+    - debug:
+        msg: "{{ lookup('template', 'templates/configs.j2') }}"

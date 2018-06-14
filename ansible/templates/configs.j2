@@ -1,0 +1,24 @@
+hostname superDuperRouter 
+
+vlan 10
+  name Users
+
+vlan 20
+  name Voice
+
+vlan 30
+  name Hackers
+
+vrf definition haxxor
+  rd 100:100
+
+interface GigabitEthernet1
+  description Uplink to the Interwebz
+  ip address 10.0.0.1 255.255.255.0
+
+interface GigabitEthernet2
+  description Secret Hacker uplink
+  vrf forwarding haxxor
+  ip address 10.2.0.1 255.255.255.0
+  
+  
