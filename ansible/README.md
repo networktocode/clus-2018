@@ -7,7 +7,7 @@ pip install ansible
 
 ### To Generate Templates
 
-``shell
+``` console
 ANSIBLE_STDOUT_CALLBACK=debug \
 ansible-playbook -i inventory generate_configs.yml
 ```
